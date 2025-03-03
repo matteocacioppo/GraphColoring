@@ -19,7 +19,7 @@ The model is designed to handle arbitrary graphs with a given number of nodes an
 ### 🏗️ Network Architecture
 - The network consists of a single hidden layer.
 - Node features are aggregated using the **mean aggregation** function:
-  \[ h_v^k = \frac{\sum_{u \in N(v)} h_u^{k-1}}{|N(v)|} \]
+  $\ h_v^k = \frac{\sum_{u \in N(v)} h_u^{k-1}}{|N(v)|} \$
 - ReLU activation is applied after aggregation.
 - A final aggregation step produces the output.
 - A **softmax normalization** is applied to ensure the output values represent valid probabilities.
@@ -27,9 +27,9 @@ The model is designed to handle arbitrary graphs with a given number of nodes an
 ## 📉 Loss Function
 The loss function is inspired by the Hamiltonian of the Potts model, a statistical physics model that generalizes the Ising model to multiple states (colors). The Hamiltonian is expressed as:
 
-\[ H = \sum_{<i,j>} \mathbf{p}_i \cdot \mathbf{p}_j^T \]
+$\ H = \sum_{<i,j>} \mathbf{p}_i \cdot \mathbf{p}_j^T \$
 
-where \( \mathbf{p}_i \) and \( \mathbf{p}_j \) are the probability vectors of nodes \( i \) and \( j \), and the sum runs over all adjacent nodes.
+where $\( \mathbf{p}_i \)$ and $\( \mathbf{p}_j \)$ are the probability vectors of nodes $\( i \)$ and $\( j \)$, and the sum runs over all adjacent nodes.
 
 Minimizing this loss encourages neighboring nodes to have different dominant color components, effectively solving the coloring problem. The adjacency matrix is used to compute these interactions efficiently.
 
